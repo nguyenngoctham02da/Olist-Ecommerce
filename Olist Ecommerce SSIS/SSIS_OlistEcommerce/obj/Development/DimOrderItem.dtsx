@@ -1,0 +1,634 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/22/2023 9:03:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-9EQSD23D"
+  DTS:CreatorName="LAPTOP-9EQSD23D\PC ADMIN"
+  DTS:DTSID="{8C949264-A151-4E77-B282-71B0E50325D8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{1043EF17-35EA-4F6E-8EE7-52522D270CB6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D409F305-819D-443B-BD93-D721760B2397}"
+      DTS:ObjectName="LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-9EQSD23D\NGOCTHAM;Initial Catalog=OLISTECOMMERCE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D409F305-819D-443B-BD93-D721760B2397}LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OrderItem-Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E1C057A3-511F-4A3E-8650-DCBD8CC30984}"
+      DTS:ObjectName="OrderItem-Connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1258"
+          DTS:ConnectionString="D:\HOC KY VIII\PTDL TRONG KD\Dataset\Olist_exported\DimOrderItem.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_id"
+              DTS:DTSID="{6521AA64-2778-472E-AABC-251DFA6E7869}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_item_id"
+              DTS:DTSID="{9ACB3FD5-ACE2-4696-87AE-3D48CF6ED465}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="product_id"
+              DTS:DTSID="{5F905387-3BF2-4842-8464-761C82C6F57E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="seller_id"
+              DTS:DTSID="{2D33C4CA-A2F9-4D8F-9680-778F192B1ADE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="shipping_limit_date"
+              DTS:DTSID="{164928A6-B57E-492E-B6E4-44EDC1C8A739}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="price"
+              DTS:DTSID="{8BB63ED8-B33F-4440-BF2C-B9F5999ED221}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="14"
+              DTS:TextQualified="True"
+              DTS:ObjectName="freight_value"
+              DTS:DTSID="{BD1D0044-3E21-4B35-A753-936A3E9AB4DE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{86848B25-D05E-4FBC-8AD1-43334F2A66E2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D409F305-819D-443B-BD93-D721760B2397}"
+          SQLTask:SqlStatementSource="truncate table olist.DimOrderItem" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load csv to SQL Server (DimOrderItem)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{433ABF0C-0D3E-4E8D-BF96-6BD00149355E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load csv to SQL Server (DimOrderItem)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load DimOrderItem"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[olist].[DimOrderItem]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].Columns[order_item_id]"
+                      cachedDataType="i4"
+                      cachedName="order_item_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[order_item_id]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_item_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].Columns[product_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="product_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[product_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].Columns[price]"
+                      cachedDataType="decimal"
+                      cachedName="price"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].Columns[freight_value]"
+                      cachedDataType="decimal"
+                      cachedName="freight_value"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[freight_value]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[order_item_id]"
+                      dataType="i4"
+                      name="order_item_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[product_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[price]"
+                      dataType="numeric"
+                      name="price"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input].ExternalColumns[freight_value]"
+                      dataType="numeric"
+                      name="freight_value"
+                      precision="8"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Read DimOrderItem"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OrderItem-Connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[OrderItem-Connection]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_item_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[order_item_id]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[order_item_id]"
+                      name="order_item_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[product_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[product_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[product_id]"
+                      name="product_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[price]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[price]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[freight_value]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[freight_value]"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].Columns[freight_value]"
+                      name="freight_value"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[order_item_id]"
+                      dataType="i4"
+                      name="order_item_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[product_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="product_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[seller_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="seller_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[shipping_limit_date]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="shipping_limit_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[price]"
+                      dataType="decimal"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output].ExternalColumns[freight_value]"
+                      dataType="decimal"
+                      name="freight_value" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1258"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load csv to SQL Server (DimOrderItem).Paths[Flat File Source Output]"
+              endId="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D30A7AC-4431-4C4B-B1FF-1C1E770CBDFF}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load csv to SQL Server (DimOrderItem)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="266.4,41.6"
+          Id="Package\Load csv to SQL Server (DimOrderItem)"
+          TopLeft="304.285719467669,204.941179344811" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="349.285720234015,88.7058835970077" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="433.985719850842,130.305883597008">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.6352957478033"
+              Start="0,0"
+              End="0,67.1352957478033">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.1352957478033" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load csv to SQL Server (DimOrderItem)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Load csv to SQL Server (DimOrderItem)\Read DimOrderItem"
+          TopLeft="279.285719041922,168.235296477084" />
+        <NodeLayout
+          Size="172,41.6"
+          Id="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem"
+          TopLeft="278.571433315472,250.82353292947" />
+        <EdgeLayout
+          Id="Package\Load csv to SQL Server (DimOrderItem).Paths[Flat File Source Output]"
+          TopLeft="365.128576178697,209.835296477084">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.9882364523865"
+              Start="0,0"
+              End="0,33.4882364523865">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4882364523865" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load csv to SQL Server (DimOrderItem)\Load DimOrderItem">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

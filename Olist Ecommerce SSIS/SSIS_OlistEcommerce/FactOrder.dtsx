@@ -1,0 +1,759 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/22/2023 1:53:17 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-9EQSD23D"
+  DTS:CreatorName="LAPTOP-9EQSD23D\PC ADMIN"
+  DTS:DTSID="{E01ECADD-9CEE-43C0-8BA4-4809051D8868}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{ED5E5D3A-22B4-446E-86A1-60E08A127B4F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{23A2231F-A5E2-46AE-B590-EAC8E038B408}"
+      DTS:ObjectName="LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-9EQSD23D\NGOCTHAM;Initial Catalog=OLISTECOMMERCE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{23A2231F-A5E2-46AE-B590-EAC8E038B408}LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Order_Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8AED67D4-E40B-43DB-B59D-99DB54CD1730}"
+      DTS:ObjectName="Order_Connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1258"
+          DTS:ConnectionString="D:\HOC KY VIII\PTDL TRONG KD\Dataset\Olist_exported\FactOrder.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_id"
+              DTS:DTSID="{631C2CD7-D75E-4AD5-9D47-F8650DB71D00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_id"
+              DTS:DTSID="{AB00623D-58C7-4B0F-B842-01D8FE2B2980}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_status"
+              DTS:DTSID="{95209115-5F13-4091-B4D2-0BA6BB3A2D34}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_purchase_timestamp"
+              DTS:DTSID="{BE2C113C-6809-41F4-8FD7-B72027C69E9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_approved_at"
+              DTS:DTSID="{E2412C58-1114-471D-8857-E9F99555E073}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_delivered_carrier_date"
+              DTS:DTSID="{6D6E3B58-2F51-49F7-B05B-6BB3441E38A7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_delivered_customer_date"
+              DTS:DTSID="{B5B80D59-4412-4F44-BC42-E05A049B3975}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="order_estimated_delivery_date"
+              DTS:DTSID="{1F1C3EB8-A42F-47C4-AD92-E9A2E5B491E8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EEDF956E-272F-4E73-BF22-463CC6FFF31C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{23A2231F-A5E2-46AE-B590-EAC8E038B408}"
+          SQLTask:SqlStatementSource="truncate table olist.FactOrder" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load csv to SQL Server (FactOrder)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1EE2CD6F-EE5A-4AFE-ADBC-A522ACAD39E7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load csv to SQL Server (FactOrder)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[olist].[FactOrder]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_status]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="order_status"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_status]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_purchase_timestamp]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_purchase_timestamp"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_approved_at]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_approved_at"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_approved_at]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_delivered_carrier_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_carrier_date"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_delivered_customer_date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="order_delivered_customer_date"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_estimated_delivery_date]"
+                      cachedDataType="dbDate"
+                      cachedName="order_estimated_delivery_date"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_status]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_status" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="order_purchase_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      name="order_approved_at" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_carrier_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_customer_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[order_estimated_delivery_date]"
+                      dataType="dbTimeStamp"
+                      name="order_estimated_delivery_date" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Read FactOrder"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Order_Connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[Order_Connection]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_id]"
+                      name="order_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_status]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_status]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_status]"
+                      name="order_status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_purchase_timestamp]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_purchase_timestamp]"
+                      name="order_purchase_timestamp"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_approved_at]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_approved_at]"
+                      name="order_approved_at"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_delivered_carrier_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_carrier_date]"
+                      name="order_delivered_carrier_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_delivered_customer_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_delivered_customer_date]"
+                      name="order_delivered_customer_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_estimated_delivery_date]"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].Columns[order_estimated_delivery_date]"
+                      name="order_estimated_delivery_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_status]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="order_status" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_purchase_timestamp]"
+                      dataType="dbTimeStamp"
+                      name="order_purchase_timestamp" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_approved_at]"
+                      dataType="dbTimeStamp"
+                      name="order_approved_at" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_delivered_carrier_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_carrier_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_delivered_customer_date]"
+                      dataType="dbTimeStamp"
+                      name="order_delivered_customer_date" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output].ExternalColumns[order_estimated_delivery_date]"
+                      dataType="dbDate"
+                      name="order_estimated_delivery_date" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1258"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load csv to SQL Server (FactOrder).Paths[Flat File Source Output]"
+              endId="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load csv to SQL Server (FactOrder)\Read FactOrder.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3BA4F243-1440-40E4-B738-88D6E79F5B7E}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load csv to SQL Server (FactOrder)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="305.000005194119,57.3529419808239" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\Load csv to SQL Server (FactOrder)"
+          TopLeft="252.142861436824,165.941178797851" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="386.200005194119,98.9529419808239">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.2571437572951,66.9882368170271"
+              Start="0,0"
+              End="-11.2571437572951,59.4882368170271">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4941184085135" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4941184085135"
+                    Point2="0,33.4941184085135"
+                    Point3="-4,33.4941184085135" />
+                  <mssgle:LineSegment
+                    End="-7.25714375729513,33.4941184085135" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.25714375729513,33.4941184085135"
+                    Point2="-11.2571437572951,33.4941184085135"
+                    Point3="-11.2571437572951,37.4941184085135" />
+                  <mssgle:LineSegment
+                    End="-11.2571437572951,59.4882368170271" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load csv to SQL Server (FactOrder)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination"
+          TopLeft="326.428576987617,262.294121325635" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Load csv to SQL Server (FactOrder)\Read FactOrder"
+          TopLeft="279.285719041922,167.470590584006" />
+        <EdgeLayout
+          Id="Package\Load csv to SQL Server (FactOrder).Paths[Flat File Source Output]"
+          TopLeft="355.285719041922,209.070590584006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.342857945695,53.2235307416288"
+              Start="0,0"
+              End="56.342857945695,45.7235307416288">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6117653708144" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.6117653708144"
+                    Point2="0,26.6117653708144"
+                    Point3="4,26.6117653708144" />
+                  <mssgle:LineSegment
+                    End="52.342857945695,26.6117653708144" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.342857945695,26.6117653708144"
+                    Point2="56.342857945695,26.6117653708144"
+                    Point3="56.342857945695,30.6117653708144" />
+                  <mssgle:LineSegment
+                    End="56.342857945695,45.7235307416288" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load csv to SQL Server (FactOrder)\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

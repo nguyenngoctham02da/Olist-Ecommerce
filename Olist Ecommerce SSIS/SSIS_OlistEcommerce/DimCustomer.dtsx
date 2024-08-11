@@ -1,0 +1,585 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/22/2023 1:36:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-9EQSD23D"
+  DTS:CreatorName="LAPTOP-9EQSD23D\PC ADMIN"
+  DTS:DTSID="{DF2E159E-0B70-4915-87BF-670990B67F95}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5270.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{E0EC2ED3-3F58-469E-90BF-5C8169C648F1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer_Connection]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F0E25754-3455-4229-9DDA-A96069C8D414}"
+      DTS:ObjectName="Customer_Connection">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1258"
+          DTS:ConnectionString="D:\HOC KY VIII\PTDL TRONG KD\Dataset\Olist_exported\DimCustomer.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_id"
+              DTS:DTSID="{CDD6B483-283D-4231-A570-685FDCDF7E8C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_unique_id"
+              DTS:DTSID="{5676B08F-0C4B-4812-BD03-50E1A17260FA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_zip_code_prefix"
+              DTS:DTSID="{0394AE48-162E-4EB7-B716-1CFFD718BDD2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_city"
+              DTS:DTSID="{707BAD35-045A-4334-AC04-7CC48D7CC45E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="customer_state"
+              DTS:DTSID="{15FDB1B1-7162-4FC3-AC9B-A40AB080DBBB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="new_customer_id"
+              DTS:DTSID="{6E3F40FA-77D9-4EFE-8EBB-759BB8345D8A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6B60FB3F-8FE3-45FF-93E8-530F0EBF5A35}"
+      DTS:ObjectName="LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-9EQSD23D\NGOCTHAM;Initial Catalog=OLISTECOMMERCE;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{6B60FB3F-8FE3-45FF-93E8-530F0EBF5A35}LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B3E3EC1C-C751-4FD6-B2B4-5DD98C40B0F7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6B60FB3F-8FE3-45FF-93E8-530F0EBF5A35}"
+          SQLTask:SqlStatementSource="truncate table olist.DimCustomer" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load csv to SQL Server (DimCustomer)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5A7A5DF5-09B0-4A44-A167-2A18AAACAF5B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load csv to SQL Server (DimCustomer)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Load DimCustomer"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[olist].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-9EQSD23D\NGOCTHAM.OLISTECOMMERCE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].Columns[customer_zip_code]"
+                      cachedDataType="i4"
+                      cachedName="customer_zip_code"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code]"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_zip_code]" />
+                    <inputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].Columns[customer_unique_id]"
+                      cachedCodepage="1258"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="customer_unique_id"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_unique_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_zip_code]"
+                      dataType="i4"
+                      name="customer_zip_code" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input].ExternalColumns[customer_unique_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_unique_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Read DimCustomer"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Customer_Connection]"
+                  connectionManagerRefId="Package.ConnectionManagers[Customer_Connection]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_zip_code]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_zip_code_prefix]"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_zip_code]"
+                      name="customer_zip_code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_unique_id]"
+                      codePage="1258"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_unique_id]"
+                      length="50"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].Columns[customer_unique_id]"
+                      name="customer_unique_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_unique_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_unique_id" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_zip_code_prefix]"
+                      dataType="i4"
+                      name="customer_zip_code_prefix" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_city]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_city" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[customer_state]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="customer_state" />
+                    <externalMetadataColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output].ExternalColumns[new_customer_id]"
+                      codePage="1258"
+                      dataType="str"
+                      length="50"
+                      name="new_customer_id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1258"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Load csv to SQL Server (DimCustomer).Paths[Flat File Source Output]"
+              endId="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer.Inputs[OLE DB Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CAB8B0CE-8F4B-4D58-8C03-C9F6A072BC1D}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load csv to SQL Server (DimCustomer)" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="262.4,41.6"
+          Id="Package\Load csv to SQL Server (DimCustomer)"
+          TopLeft="230.000003916877,197.294120414034" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="267.857147418723,68.0588244839111" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="349.057147418723,109.658824483911">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.1428564981539,87.6352959301228"
+              Start="0,0"
+              End="12.1428564981539,80.1352959301228">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8176479650614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.8176479650614"
+                    Point2="0,43.8176479650614"
+                    Point3="4,43.8176479650614" />
+                  <mssgle:LineSegment
+                    End="8.14285649815395,43.8176479650614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.14285649815395,43.8176479650614"
+                    Point2="12.1428564981539,43.8176479650614"
+                    Point3="12.1428564981539,47.8176479650614" />
+                  <mssgle:LineSegment
+                    End="12.1428564981539,80.1352959301228" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Load csv to SQL Server (DimCustomer)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\Load csv to SQL Server (DimCustomer)\Read DimCustomer"
+          TopLeft="382.142863650711,146.823531470909" />
+        <NodeLayout
+          Size="168,41.6"
+          Id="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer"
+          TopLeft="415.000007067408,269.941180256411" />
+        <EdgeLayout
+          Id="Package\Load csv to SQL Server (DimCustomer).Paths[Flat File Source Output]"
+          TopLeft="466.542863650711,188.423531470909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.4571434166966,81.5176487855021"
+              Start="0,0"
+              End="32.4571434166966,74.0176487855021">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.758824392751" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.758824392751"
+                    Point2="0,40.758824392751"
+                    Point3="4,40.758824392751" />
+                  <mssgle:LineSegment
+                    End="28.4571434166966,40.758824392751" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.4571434166966,40.758824392751"
+                    Point2="32.4571434166966,40.758824392751"
+                    Point3="32.4571434166966,44.758824392751" />
+                  <mssgle:LineSegment
+                    End="32.4571434166966,74.0176487855021" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load csv to SQL Server (DimCustomer)\Load DimCustomer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
